@@ -427,8 +427,8 @@ class menus{
         line((width/2)+207,(height/2)-122,(width/2)+209,(height/2)-117);
         line((width/2)+215,(height/2)-124,(width/2)+209,(height/2)-117);
         setlinestyle(0,0,1);
-        rectangle((width/2)-100,(height/2)-70,(width/2)+100,(height/2)-10);  //1 player box
-        rectangle((width/2)-100,(height/2)+30,(width/2)+110,(height/2)+90);  //2 player box
+        rectangle((width/2)-100,(height/2)-70,(width/2)+120,(height/2)-10);  //1 player box
+        rectangle((width/2)-120,(height/2)+30,(width/2)+140,(height/2)+90);  //2 player box
         rectangle((width/2)-100,(height/2)+130,(width/2)+110,(height/2)+190);  //Exit box
         settextstyle(SMALL_FONT,0,10);
         outtextxy((width/2)-90,(height/2)-60,"1 player");
@@ -470,7 +470,7 @@ while(men==true){
 
     //when mouse hover over the respective option it changes their color to red
     setfillstyle(SOLID_FILL,RED);
-    if((width/2)-100<=cursorpos.x && cursorpos.x<=(width/2)+100 && (height/2)-70<=cursorpos.y && cursorpos.y<=(height/2)-10){
+    if((width/2)-100<=cursorpos.x && cursorpos.x<=(width/2)+120 && (height/2)-70<=cursorpos.y && cursorpos.y<=(height/2)-10){
      floodfill((width/2)-97,(height/2)-65,YELLOW);
      
      //when mouse button is clicked on particular places on screen program perform respective tasks
@@ -481,7 +481,7 @@ while(men==true){
      }
     }
    
-     else if((width/2)-100<=cursorpos.x && cursorpos.x<=(width/2)+110 && (height/2)+30<=cursorpos.y && cursorpos.y<=(height/2)+90){
+     else if((width/2)-120<=cursorpos.x && cursorpos.x<=(width/2)+140 && (height/2)+30<=cursorpos.y && cursorpos.y<=(height/2)+90){
       floodfill((width/2)-98,(height/2)+33,YELLOW);
       if(ismouseclick(WM_LBUTTONDOWN)){
         players=true;
@@ -497,9 +497,9 @@ while(men==true){
          return 0;
       }
      }
-     else if(840<=cursorpos.x && cursorpos.x<=900 && 220<=cursorpos.y && cursorpos.y<=280){
+     else if((width/2)+190<=cursorpos.x && cursorpos.x<=(width/2)+250 && (height/2)-150<=cursorpos.y && cursorpos.y<=(height/2)-90){
         setfillstyle(1,GREEN);
-        floodfill(842,223,YELLOW);
+        floodfill((width/2)+191,(height/2)-149,YELLOW);
         if(ismouseclick(WM_LBUTTONDOWN)){
             h1.writeHighScore(0);
             highScore=h1.readHighScore();
