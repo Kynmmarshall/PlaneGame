@@ -427,7 +427,7 @@ class menus{
         outtextxy((width/2)-90,(height/2)-60,"1 player");
         outtextxy((width/2)-99,(height/2)+40,"2 players");
         outtextxy((width/2)-50,(height/2)+140,"EXIT");
-        floodfill((width/2)+20,(height/2)-160,YELLOW);
+         floodfill((width/2)+20,(height/2)-160,YELLOW);
         setfillstyle(SOLID_FILL,BLUE);
         setcolor(GREEN);
         sprintf(hs, "High Score: %d", highScore);
@@ -545,7 +545,7 @@ while(play==true){
       ran = (rand() % 13) + 2;
     while(i < ran) {
          bombs[i].x = (rand() % (1500)) + 1400;
-         bombs[i].y = (rand() % (450 - 50)) + 25;
+         bombs[i].y = (rand() % (height-305)) + 25;
         bombs[i].active = true;
         i++;  
     } 

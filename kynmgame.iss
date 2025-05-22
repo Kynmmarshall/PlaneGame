@@ -15,6 +15,7 @@ ArchitecturesInstallIn64BitMode=x64
 Source: "planeGame.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "*.wav"; DestDir: "{app}"; Flags: ignoreversion
 Source: "highscore.txt"; DestDir: "{app}"; Flags: onlyifdoesntexist
+Source: "README.md"; DestDir: "{app}"; Flags: onlyifdoesntexist
 
 [Icons]
 Name: "{group}\KynmGame"; Filename: "{app}\planeGame.exe"
