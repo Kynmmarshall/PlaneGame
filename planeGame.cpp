@@ -102,6 +102,7 @@ class playerr: public location{  //playerr class inherits the location class tha
             floodfill((x+x2)/2,(y+y2)/2,YELLOW);
             
             // Control using keys
+            //WASD
             if(GetAsyncKeyState('W')){
                 y-=speed;
                 y2-=speed;
@@ -119,6 +120,7 @@ class playerr: public location{  //playerr class inherits the location class tha
                 x2+=speed;
              }
         }  
+        //ARROW KEYS
         else{
             setfillstyle(1,BLUE);
             floodfill((x+x2)/2,(y+y2)/2,BLUE);
@@ -141,7 +143,7 @@ class playerr: public location{  //playerr class inherits the location class tha
         }
       
      
-     
+     //Prevent players from going out of screen borders
      if (x < 0) { x = 0; x2 = 50; }
       if (x2 > width-200) { x =width-200 - 50; x2 =width-200; }
       if (y < 0) { y = 0; y2 = 30; }
@@ -155,6 +157,7 @@ class playerr: public location{  //playerr class inherits the location class tha
         int bombradius=15;
         while(i < ran) {
            if (bombs[i].active) {
+            //array to determine if each verttice of player is touched by a bombs
                int distances[] = {
                    distancebetween(x, y + 15, bombs[i]),
                    distancebetween(x - 20, y + 40, bombs[i]),
@@ -172,6 +175,7 @@ class playerr: public location{  //playerr class inherits the location class tha
                    distancebetween(x + 25, y2+20, bombs[i])         
                  };
                   j=0;
+                  //condition for collision
                while(j<14) {
                    if (distances[j] <= bombradius-5) {
                        return true;
@@ -190,6 +194,7 @@ class playerr: public location{  //playerr class inherits the location class tha
         setlinestyle(CENTER_LINE, 0,200);
         static bool initialized = false;
         if (!initialized) {
+            //uses an array to with many points to draw the first terrain
             while(i < 24) {
                 arrax[i] = (i * 50);  
                 array[i] = (rand() % 100) + height-100;
@@ -228,6 +233,7 @@ class playerr: public location{  //playerr class inherits the location class tha
           }
           if(arrx[24]<=0){
            i=1;
+           //uses an array to with many points to draw the second terrain
            while(i < 24) {
               arrx[i] = (i * 50)+width+100; 
               arry[i] = (rand() % 100) + height-130; 
@@ -352,7 +358,7 @@ class menus{
     //method for rotating star
     void stars(int centerX, int centerY, int size,int angle){
         float rad=(float)angle*(M_PI / 180);
-        int arra[8],arrar[8];
+        int arra[8],arrar[8]; //uses two arrays to create a star that rotates at a constant angle (rad)
             arra[0] = centerX +size *sin(rad);
             arrar[0] = centerY - size * cos(rad);
   
@@ -379,6 +385,7 @@ class menus{
   
             setcolor(YELLOW);
             int i=0;
+            //uses the two arrays to draw the rotating star on the screen
             while(i<7){
             line(arra[i], arrar[i], arra[i+1], arrar[i+1]);
              i++; 
@@ -386,11 +393,11 @@ class menus{
            line(arra[7],arrar[7],arra[0],arrar[0]);
         }
    
-        //draws actual menu 
+        //draws actual menu with all the different shapes and animations in it
     void menu(int i){
         setcolor(YELLOW);
         rectangle((width/2)-250,(height/2)-180,(width/2)+270,(height/2)+220);
-        ellipse((width/2),55,0,360,400,50);
+        ellipse((width/2),55,0,360,400,50); //draws the ellipse that contains the name of the game
         settextstyle(GOTHIC_FONT,0,60);
         outtextxy((width/2)-300,34,"WELCOME TO KYNM 1.3");
         setfillstyle(SOLID_FILL,YELLOW);
@@ -411,7 +418,7 @@ class menus{
         setfillstyle(XHATCH_FILL,CYAN);
         floodfill(318,130,YELLOW);
         setfillstyle(HATCH_FILL,LIGHTMAGENTA);
-        floodfill(318,40,YELLOW);
+        floodfill((width/2),55,YELLOW);
         rectangle((width/2)-210,(height/2)-150,(width/2)+170,(height/2)-90);  //highscore box
         rectangle((width/2)+190,(height/2)-150,(width/2)+250,(height/2)-90);  //reset box
         setlinestyle(0,0,4);
@@ -427,7 +434,7 @@ class menus{
         outtextxy((width/2)-90,(height/2)-60,"1 player");
         outtextxy((width/2)-99,(height/2)+40,"2 players");
         outtextxy((width/2)-50,(height/2)+140,"EXIT");
-         floodfill((width/2)+20,(height/2)-160,YELLOW);
+        floodfill((width/2),(height/2),YELLOW);
         setfillstyle(SOLID_FILL,BLUE);
         setcolor(GREEN);
         sprintf(hs, "High Score: %d", highScore);
@@ -438,6 +445,7 @@ class menus{
 
 int c=0;
 bool res=true;
+//main funtion were all the other subfunctions are called for the game to run
 int main()
 {
 while(res==true){
@@ -502,7 +510,7 @@ while(men==true){
    
 }
 if(c==0){
-cleardevice();
+cleardevice(); //clears screen to switch from menu to gameplay screen
 c=1;   
 
 if(players==false){
@@ -572,7 +580,7 @@ while(play==true){
   bool allInactive = true;
   while(i < ran) {
   if (bombs[i].active) {
-   player1.overload(bombs[i],ran);
+   player1.overload(bombs[i],ran); //spawns a specific amount of bombs which are active
    allInactive = false;
 }
 
@@ -671,6 +679,7 @@ if(GetAsyncKeyState(VK_RETURN)){
       cleardevice();
       break;
       }
+      //if the 'M' button is pressed bring the player back to the menu screen and put the values of the variables back to default
       if(GetAsyncKeyState('M')){
         men=true;
         res=true;
