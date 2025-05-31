@@ -11,7 +11,7 @@ A 2D arcade-style airplane bombing game written in C++ using BGI graphics.
 
 ## 🎮 Controls
 - Player 1: `W A S D`
-- Player 2: Arrow Keys
+- Player 2: Arrow Keys.
 - Pause: `P`, Resume: `O`
 - Menu: `M`, Exit: `ESC`
 

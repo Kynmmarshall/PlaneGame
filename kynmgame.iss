@@ -15,11 +15,15 @@ ArchitecturesInstallIn64BitMode=x64
 Source: "planeGame.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "*.wav"; DestDir: "{app}"; Flags: ignoreversion
 Source: "highscore.txt"; DestDir: "{app}"; Flags: onlyifdoesntexist
+Source: "How_To_Run.txt"; DestDir: "{app}"; Flags: onlyifdoesntexist
 Source: "README.md"; DestDir: "{app}"; Flags: onlyifdoesntexist
-
 [Icons]
 Name: "{group}\KynmGame"; Filename: "{app}\planeGame.exe"
 Name: "{commondesktop}\KynmGame"; Filename: "{app}\planeGame.exe"
-
+[Dirs]
+Name: "{app}"; Permissions: users-modify
+Name: "{app}\Data"; Permissions: users-modify
 [Run]
+Filename: "{app}\How_To_Run.txt"; Description: "How To Run"; Flags: nowait postinstall skipifsilent
 Filename: "{app}\planeGame.exe"; Description: "Launch planeGame"; Flags: nowait postinstall skipifsilent
+
