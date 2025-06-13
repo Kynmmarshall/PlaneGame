@@ -9,6 +9,7 @@ Compression=lzma
 SolidCompression=yes
 ArchitecturesAllowed=x64
 ArchitecturesInstallIn64BitMode=x64
+SetupIconFile=plane.ico
 
 [Files]
 ; Include your executable and required files
@@ -17,6 +18,7 @@ Source: "*.wav"; DestDir: "{app}"; Flags: ignoreversion
 Source: "highscore.txt"; DestDir: "{app}"; Flags: onlyifdoesntexist
 Source: "How_To_Run.txt"; DestDir: "{app}"; Flags: onlyifdoesntexist
 Source: "README.md"; DestDir: "{app}"; Flags: onlyifdoesntexist
+Source: "plane.ico"; DestDir: "{app}"; Flags: dontcopy
 [Icons]
 Name: "{group}\KynmGame"; Filename: "{app}\planeGame.exe"
 Name: "{commondesktop}\KynmGame"; Filename: "{app}\planeGame.exe"
@@ -24,6 +26,6 @@ Name: "{commondesktop}\KynmGame"; Filename: "{app}\planeGame.exe"
 Name: "{app}"; Permissions: users-modify
 Name: "{app}\Data"; Permissions: users-modify
 [Run]
-Filename: "{app}\How_To_Run.txt"; Description: "How To Run"; Flags: nowait postinstall skipifsilent
+Filename: "notepad.exe"; Parameters: "{app}\How_To_Run.txt"; Description: "View Instructions"; Flags: postinstall waituntilterminated
 Filename: "{app}\planeGame.exe"; Description: "Launch planeGame"; Flags: nowait postinstall skipifsilent
 

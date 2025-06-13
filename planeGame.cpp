@@ -617,11 +617,6 @@ if (allInactive){
    setcolor(YELLOW);
    sprintf(hs, "High Score: %d", highScore);
    outtextxy(460, 600, hs);     
-        
-
-if(GetAsyncKeyState(VK_RETURN)){
-   break;      
-  }
   
   if (score > highScore) {
     h1.writeHighScore(score);
