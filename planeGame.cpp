@@ -271,7 +271,9 @@ class playerr: public location{  //playerr class inherits the location class tha
            setfillstyle(SOLID_FILL, BLACK);
          floodfill(px, py, RED);
         }
-        t+=.0009 ;
+        if(t<=15){
+        t+=0.0009;
+      }
          b.x -= 10+t;
          if (b.x < 0) {
              b.active = false;
@@ -523,6 +525,7 @@ while(play==true){
         return 0;
      }
      if(GetAsyncKeyState('M')){
+        t=0;
         men=true;
         res=true;
         if(players==true){
@@ -676,6 +679,7 @@ if (allInactive){
       }
       //if the 'M' button is pressed bring the player back to the menu screen and put the values of the variables back to default
       if(GetAsyncKeyState('M')){
+        t=0;
         men=true;
         res=true;
         if(players==true){
