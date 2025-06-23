@@ -697,8 +697,7 @@ if (allInactive){
   delay(20); //smoothens the motions on the screen
   cleardevice(); //refreshes the screen display to simulate motion
 }
-}`
-
+}
 getch(); 
 closegraph();
 return 0;
